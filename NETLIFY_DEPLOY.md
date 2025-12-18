@@ -18,7 +18,7 @@ Your website is now ready for Netlify! Here's how to deploy it:
 
 ## Option 2: GitHub/Git (Recommended)
 
-1. Push your code to GitHub
+1. Push your code to GitHub (make sure to include all files)
 
 2. Go to [Netlify](https://app.netlify.com)
 
@@ -27,8 +27,9 @@ Your website is now ready for Netlify! Here's how to deploy it:
 4. Connect to your GitHub repository
 
 5. Configure build settings:
-   - **Build command:** `npm run build`
+   - **Build command:** `pnpm install --no-frozen-lockfile && pnpm run build`
    - **Publish directory:** `dist`
+   - **Node version:** 18 or higher
 
 6. Click "Deploy site"
 
