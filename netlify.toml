@@ -1,6 +1,6 @@
 [build]
-command = "pnpm install --no-frozen-lockfile && pnpm run build"
-publish = "dist"
+command = "npx vite build"
+publish = "/home/project/dist"
 
 [[redirects]]
 from = "/*"
