@@ -299,50 +299,35 @@ export default function Home() {
         {/* Scrolling Marquee */}
         <div className="relative w-full overflow-hidden">
           <div className="flex gap-8 animate-marquee whitespace-nowrap">
-            {[
-              "https://i.imgur.com/j7aN1Nw.jpg",
-              "https://i.imgur.com/nJ548IU.jpg",
-              "https://i.imgur.com/jlhZuvj.jpg",
-              "https://i.imgur.com/lPYgcqK.jpg",
-              "https://i.imgur.com/pLKwSkN.jpg",
-              "https://i.imgur.com/2jiliKD.jpg",
-              "https://i.imgur.com/hKzFKL9.jpg",
-              "https://i.imgur.com/zbnNsK3.jpg",
-              "https://i.imgur.com/Fh7o4cp.jpg",
-              "https://i.imgur.com/8VFcLAR.jpg",
-              "https://i.imgur.com/KZBvvsH.jpg",
-              "https://i.imgur.com/3zMjEQG.jpg",
-              "https://i.imgur.com/WuQfuRy.jpg",
-              "https://i.imgur.com/5xG7RcO.jpg",
-              "https://i.imgur.com/uN0fVPi.jpg",
-              "https://i.imgur.com/qJhk2mT.jpg",
-              "https://i.imgur.com/2GnhjnN.jpg",
-              "https://i.imgur.com/kR8j9sL.jpg",
-              "https://i.imgur.com/7XmfQpT.jpg",
-              "https://i.imgur.com/j7aN1Nw.jpg",
-              "https://i.imgur.com/nJ548IU.jpg",
-              "https://i.imgur.com/jlhZuvj.jpg",
-              "https://i.imgur.com/lPYgcqK.jpg",
-              "https://i.imgur.com/pLKwSkN.jpg",
-              "https://i.imgur.com/2jiliKD.jpg",
-              "https://i.imgur.com/hKzFKL9.jpg",
-              "https://i.imgur.com/zbnNsK3.jpg",
-              "https://i.imgur.com/Fh7o4cp.jpg",
-              "https://i.imgur.com/8VFcLAR.jpg",
-              "https://i.imgur.com/KZBvvsH.jpg",
-              "https://i.imgur.com/3zMjEQG.jpg",
-              "https://i.imgur.com/WuQfuRy.jpg",
-              "https://i.imgur.com/5xG7RcO.jpg",
-              "https://i.imgur.com/uN0fVPi.jpg",
-              "https://i.imgur.com/qJhk2mT.jpg",
-              "https://i.imgur.com/2GnhjnN.jpg",
-              "https://i.imgur.com/kR8j9sL.jpg",
-              "https://i.imgur.com/7XmfQpT.jpg",
-            ].map((src, index) => (
-              <div key={index} className="inline-block w-80 h-80 border border-white/20 bg-white/5 p-2 flex-shrink-0 hover:scale-105 transition-transform duration-300">
-                <img src={src} alt={`Meme ${index}`} className="w-full h-full object-cover transition-all duration-500" />
-              </div>
-            ))}
+            {(() => {
+              const memeImages = [
+                "https://i.imgur.com/j7aN1Nw.jpg",
+                "https://i.imgur.com/nJ548IU.jpg",
+                "https://i.imgur.com/jlhZuvj.jpg",
+                "https://i.imgur.com/lPYgcqK.jpg",
+                "https://i.imgur.com/pLKwSkN.jpg",
+                "https://i.imgur.com/2jiliKD.jpg",
+                "https://i.imgur.com/hKzFKL9.jpg",
+                "https://i.imgur.com/zbnNsK3.jpg",
+                "https://i.imgur.com/Fh7o4cp.jpg",
+                "https://i.imgur.com/8VFcLAR.jpg",
+                "https://i.imgur.com/KZBvvsH.jpg",
+                "https://i.imgur.com/3zMjEQG.jpg",
+                "https://i.imgur.com/WuQfuRy.jpg",
+                "https://i.imgur.com/5xG7RcO.jpg",
+                "https://i.imgur.com/uN0fVPi.jpg",
+                "https://i.imgur.com/qJhk2mT.jpg",
+                "https://i.imgur.com/2GnhjnN.jpg",
+                "https://i.imgur.com/kR8j9sL.jpg",
+                "https://i.imgur.com/7XmfQpT.jpg",
+              ];
+              // Render 3 copies of all images for seamless infinite scroll
+              return [...memeImages, ...memeImages, ...memeImages].map((src, index) => (
+                <div key={index} className="inline-block w-80 h-80 border border-white/20 bg-white/5 p-2 flex-shrink-0 hover:scale-105 transition-transform duration-300">
+                  <img src={src} alt={`Meme ${index % memeImages.length + 1}`} className="w-full h-full object-cover transition-all duration-500" />
+                </div>
+              ));
+            })()}
           </div>
         </div>
       </section>
