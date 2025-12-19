@@ -324,7 +324,7 @@ export default function Home() {
                 "https://i.imgur.com/h0FrOI3.jpg",
                 "https://i.imgur.com/jqE7Cse.jpg",
               ];
-              return [...memeImages, ...memeImages].map((src, index) => (
+              return [...memeImages, ...memeImages, ...memeImages, ...memeImages].map((src, index) => (
                 <div key={index} className="inline-block w-80 h-80 border border-white/20 bg-white/5 p-2 flex-shrink-0 hover:scale-105 transition-transform duration-300">
                   <img src={src} alt={`Meme ${index % memeImages.length + 1}`} className="w-full h-full object-cover transition-all duration-500" />
                 </div>
