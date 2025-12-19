@@ -11,10 +11,10 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [copied, setCopied] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  // This will be updated by the user later
-  const contractAddress = "CA: ANNOUNCED_ON_LAUNCH_DAY"; 
-  
-  // Fetch market data (will be null until a real CA is provided)
+  // Get contract address from environment variable
+  const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS || "CA: ANNOUNCED_ON_LAUNCH_DAY";
+
+  // Fetch market data from DEXScreener API
   const { data: marketData } = useMarketData(contractAddress);
   
   // Background audio control
