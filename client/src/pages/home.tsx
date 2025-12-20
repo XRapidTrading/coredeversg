@@ -305,7 +305,7 @@ export default function Home() {
                 "https://i.imgur.com/Fh7o4cp.jpg",
                 "https://i.imgur.com/zbnNsK3.jpg",
                 "https://i.imgur.com/hKzFKL9.jpg",
-                "https://i.imgur.com/pLKwSkN.jpg",
+                "https://imgur.com/3RhbP9Q",
                 "https://i.imgur.com/2jiliKD.jpg",
                 "https://i.imgur.com/lPYgcqK.jpg",
                 "https://i.imgur.com/jlhZuvj.jpg",
