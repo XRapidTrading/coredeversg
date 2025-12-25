@@ -148,13 +148,13 @@ export default function Home() {
               <Separator className="bg-white/20 w-full" />
               <div className="space-y-8 text-lg text-gray-300 font-light leading-relaxed font-mono">
                 <p>
-                  TRADINGCORE is a cultural movement. It captures the essence of Traders, ruggers, memers and the raw unfiltered core.
-                </p>
-                <p>
-                  Born from the depths of meme culture, it represents the core of everything—the unfiltered, the real, the MONEY.
-                </p>
-                <p>
                   On Solana, we transcend traditional boundaries. We're building a space where dollars flow freely and connections run deep.
+                </p>
+                <p>
+                  Born from the depths of meme culture, it represents the core of everything—the real, the unfiltered, the core of TRADERS.
+                </p>
+                <p>
+                  TRADINGCORE is a cultural movement. It captures the essence of Traders, ruggers, memers and the raw unfiltered core of trading.
                 </p>
               </div>
               
