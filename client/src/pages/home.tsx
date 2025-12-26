@@ -1,75 +1,7 @@
 
-import StarField from "@/components/starfield";
-import { useMarketData } from "@/hooks/usemarketdata";
-import { useBackgroundAudio } from "@/hooks/usebackgroundaudio";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { BarChart3, Copy, Globe, Rocket, ShieldCheck, Wallet, Zap, Volume2, VolumeX } from "lucide-react";
-import { useState, useEffect } from "react";
-
-export default function Home() {
-  const [copied, setCopied] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  // Get contract address from environment variable
-  const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS || "CA: ANNOUNCED_ON_LAUNCH_DAY";
-
-  // Fetch market data from DEXScreener API
-  const { data: marketData } = useMarketData(contractAddress);
-  
-  // Background audio control
-  const { toggle, isPlaying, hasStarted } = useBackgroundAudio();
-  
-  // Sync muted state with audio playing state
-  useEffect(() => {
-    setIsMuted(!isPlaying());
-  }, [isPlaying]);
-  
-  const handleToggleAudio = async () => {
-    await toggle();
-    setIsMuted(!isPlaying());
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(contractAddress);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col text-foreground overflow-x-hidden relative">
-      <StarField />
-      
-      {/* Navigation */}
-      <nav className="fixed top-6 w-full z-50 flex justify-center pointer-events-none">
-        <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-8 py-4 flex items-center gap-12 pointer-events-auto shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-          <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-lg tracking-widest text-white">TRADING<span className="font-light">CORE</span></span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 font-mono text-xs tracking-widest">
-            <a href="#about" className="text-gray-400 hover:text-white transition-colors">ABOUT</a>
-            <a href="#stats" className="text-gray-400 hover:text-white transition-colors">STATS</a>
-            <a href="#howto" className="text-gray-400 hover:text-white transition-colors">HOW TO BUY</a>
-            <a href="#roadmap" className="text-gray-400 hover:text-white transition-colors">ROADMAP</a>
-            {/* Audio Toggle Button */}
-            {hasStarted() && (
-              <button
-                onClick={handleToggleAudio}
-                className="text-gray-400 hover:text-white transition-colors ml-4"
-                title={isMuted ? "Unmute" : "Mute"}
-              >
-                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-              </button>
-            )}
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16">
-        <div className="container relative z-10 text-center px-4">
-          <div className="inline-block mb-6 px-4 py-1 border border-white/30 bg-black">
-            <span className="text-white font-mono text-xs tracking-[0.3em]">THE CORE OF TRADING</span>
+        <div className="container relative  className="inline-block mb-6 px-4 py-1 border border-white/30 bg-text-xs tracking-[0.3em]">THE CORE OF TRADING</span>
           </div>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 tracking-tighter text-white">
             TRADING<br/><span className="font-outline-2 text-transparent bg-clip-text bg-white/10 stroke-white">CORE</span>
@@ -103,7 +35,7 @@ export default function Home() {
               <span>///</span>
               <span>PRICE: ${marketData.priceUsd}</span>
               <span>///</span>
-              <span>24H VOL: ${marketData.volume.h24.toLocaleString()}</span>
+              <span>24H VOL: ${imarketData.volume.h24.toLocaleString()}</span>
             </>
           ) : (
             <>
@@ -337,20 +269,4 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-white/10 bg-black relative z-10">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="h-4 w-4 bg-white rounded-full"></div>
-            <span className="font-mono font-bold text-lg text-white">TRADINGCORE</span>
-          </div>
-          <div className="flex gap-8 font-mono text-sm">
-            <a href="https://x.com/Tradingcore_sol" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">TWITTER</a>
-            <a href="https://t.me/TraderCoreOnSol" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">TELEGRAM</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">DEXSCREENER</a>
-          </div>
-          <p className="text-gray-700 font-mono text-xs">
-            © 2025 TRADINGCORE.
-          </p>
-        </div>
-      </footer>
-    </div>
-  );
-}
+          <div className
