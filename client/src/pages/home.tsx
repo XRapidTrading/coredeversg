@@ -6,9 +6,9 @@ import { useMarketData } from "@/hooks/usemarketdata";
 import StarField from "@/components/starfield";
 
 export default function Home() {
-  const { marketData } = useMarketData();
   const [copied, setCopied] = useState(false);
   const contractAddress = "TBD";
+  const { data: marketData } = useMarketData(contractAddress);
 
   const copyToClipboard = async () => {
     try {
