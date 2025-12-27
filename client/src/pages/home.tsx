@@ -1,8 +1,32 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Wallet, Rocket, BarChart3 } from "lucide-react";
+import { useMarketData } from "@/hooks/usemarketdata";
+import StarField from "@/components/starfield";
 
+export default function Home() {
+  const { marketData } = useMarketData();
+  const [copied, setCopied] = useState(false);
+  const contractAddress = "TBD";
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(contractAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <StarField />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-16">
-        <div className="container relative  className="inline-block mb-6 px-4 py-1 border border-white/30 bg-text-xs tracking-[0.3em]">THE CORE OF TRADING</span>
-          </div>
+        <div className="container relative mx-auto px-4 text-center">
+          <span className="inline-block mb-6 px-4 py-1 border border-white/30 bg-white/5 text-xs tracking-[0.3em]">THE CORE OF TRADING</span>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 tracking-tighter text-white">
             TRADING<br/><span className="font-outline-2 text-transparent bg-clip-text bg-white/10 stroke-white">CORE</span>
           </h1>
@@ -35,7 +59,7 @@
               <span>///</span>
               <span>PRICE: ${marketData.priceUsd}</span>
               <span>///</span>
-              <span>24H VOL: ${imarketData.volume.h24.toLocaleString()}</span>
+              <span>24H VOL: ${marketData.volume.h24.toLocaleString()}</span>
             </>
           ) : (
             <>
@@ -269,4 +293,22 @@
       {/* Footer */}
       <footer className="py-12 border-t border-white/10 bg-black relative z-10">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className
+          <div className="text-gray-500 font-mono text-sm">
+            <p>© 2024 TRADINGCORE. All rights reserved.</p>
+          </div>
+          <div className="flex gap-6">
+            <a href="#" className="text-gray-500 hover:text-white transition-colors font-mono text-sm">
+              Twitter
+            </a>
+            <a href="#" className="text-gray-500 hover:text-white transition-colors font-mono text-sm">
+              Telegram
+            </a>
+            <a href="#" className="text-gray-500 hover:text-white transition-colors font-mono text-sm">
+              Discord
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
